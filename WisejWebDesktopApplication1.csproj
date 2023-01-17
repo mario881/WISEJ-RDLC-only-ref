@@ -1,0 +1,175 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  
+  <PropertyGroup>
+    <LangVersion>11.0</LangVersion>
+  </PropertyGroup>
+
+  
+  <PropertyGroup>
+    <TargetFrameworks>net48;net7.0</TargetFrameworks>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <EmbeddedResourceUseDependentUponConvention>true</EmbeddedResourceUseDependentUponConvention>
+    <RootNamespace>$(MSBuildProjectName.Replace(" ", "_").Replace("-", "_"))</RootNamespace>
+    <NoWarn>CA1416</NoWarn>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(TargetFramework.TrimEnd(`0123456789`))'=='net'">
+    <OutputPath>bin\</OutputPath>
+    <StartupObject></StartupObject>
+    <OutputType>Library</OutputType>
+    <RunCommand>$(ProgramFiles)\IIS Express\iisexpress.exe</RunCommand>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <RunArguments>/path:"$(MSBuildProjectDirectory)" /port:5000</RunArguments>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(TargetFramework.TrimEnd(`0123456789`))'!='net'">
+    <StartupObject>$(RootNamespace).Startup</StartupObject>
+  </PropertyGroup>
+
+  <ItemGroup Condition="'$(TargetFramework.TrimEnd(`0123456789`))'=='net'">
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Windows.Forms"><Aliases>swf</Aliases></Reference>
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Compile Remove="Startup.cs" />
+    <Content Include="Startup.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Themes\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="Default.json">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Content>
+    <Content Update="RDLCdll\Microsoft.ReportViewer.WinForms.deps.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Web.config">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Default.html" />
+    <None Remove="favicon.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Default.html">
+      <CopyToPublishDirectory>Always</CopyToPublishDirectory>
+    </Content>
+    <Content Include="favicon.ico">
+      <CopyToPublishDirectory>Always</CopyToPublishDirectory>
+    </Content>
+  </ItemGroup>
+  
+  <ItemGroup>
+    <PackageReference Include="Wisej-3" Version="3.1.*" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.*" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <None Update="RDLCdll\de\Microsoft.ReportViewer.Common.resources.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="RDLCdll\de\Microsoft.ReportViewer.WinForms.resources.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="RDLCdll\es\Microsoft.ReportViewer.Common.resources.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="RDLCdll\es\Microsoft.ReportViewer.WinForms.resources.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="RDLCdll\fr\Microsoft.ReportViewer.Common.resources.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="RDLCdll\fr\Microsoft.ReportViewer.WinForms.resources.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="RDLCdll\it\Microsoft.ReportViewer.Common.resources.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="RDLCdll\it\Microsoft.ReportViewer.WinForms.resources.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="RDLCdll\ja\Microsoft.ReportViewer.Common.resources.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="RDLCdll\ja\Microsoft.ReportViewer.WinForms.resources.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="RDLCdll\ko\Microsoft.ReportViewer.Common.resources.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="RDLCdll\ko\Microsoft.ReportViewer.WinForms.resources.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="RDLCdll\Microsoft.ReportViewer.Common.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="RDLCdll\Microsoft.ReportViewer.Common.pdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="RDLCdll\Microsoft.ReportViewer.DataVisualization.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="RDLCdll\Microsoft.ReportViewer.DataVisualization.pdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="RDLCdll\Microsoft.ReportViewer.NETCore.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="RDLCdll\Microsoft.ReportViewer.ProcessingObjectModel.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="RDLCdll\Microsoft.ReportViewer.ProcessingObjectModel.pdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="RDLCdll\Microsoft.ReportViewer.WinForms.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="RDLCdll\Microsoft.ReportViewer.WinForms.pdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="RDLCdll\pt\Microsoft.ReportViewer.Common.resources.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="RDLCdll\pt\Microsoft.ReportViewer.WinForms.resources.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="RDLCdll\SR\Microsoft.ReportViewer.Common.resources.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="RDLCdll\SR\Microsoft.ReportViewer.DataVisualization.resources.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="RDLCdll\zh-Hans\Microsoft.ReportViewer.Common.resources.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="RDLCdll\zh-Hans\Microsoft.ReportViewer.WinForms.resources.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="RDLCdll\zh-Hant\Microsoft.ReportViewer.Common.resources.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="RDLCdll\zh-Hant\Microsoft.ReportViewer.WinForms.resources.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Microsoft.ReportViewer.NETCore" Condition="'$(TargetFramework.TrimEnd(`0123456789`))'!='net'">
+      <HintPath>RDLCdll\Microsoft.ReportViewer.NETCore.dll</HintPath>
+    </Reference>
+    
+    <PackageReference Include="Microsoft.ReportingServices.ReportViewerControl.Winforms" Version="150.1537.0" Condition="'$(TargetFramework.TrimEnd(`0123456789`))'=='net'" />
+  </ItemGroup>
+
+
+
+
+</Project>
