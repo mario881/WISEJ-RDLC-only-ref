@@ -33,6 +33,8 @@ namespace WisejWebDesktopApplication1
 
             byte[] buffer = report.Render("PDF", null);// x.Render("PDF",null);
             Application.DownloadAndOpen("_blank", new System.IO.MemoryStream(buffer), "Stampa.pdf");
+           // Application.Download(new System.IO.MemoryStream(buffer), "Stampa.pdf");
+
         }
     }
 }

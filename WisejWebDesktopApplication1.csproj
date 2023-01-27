@@ -44,9 +44,6 @@
     <Content Update="Default.json">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Content>
-    <Content Update="RDLCdll\Microsoft.ReportViewer.WinForms.deps.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <Content Update="Web.config">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Content>
@@ -67,6 +64,8 @@
   </ItemGroup>
   
   <ItemGroup>
+    <PackageReference Include="Microsoft.CodeAnalysis" Version="4.4.0" />
+    <PackageReference Include="System.CodeDom" Version="7.0.0" />
     <PackageReference Include="Wisej-3" Version="3.1.*" />
     <PackageReference Include="System.Data.SqlClient" Version="4.*" />
   </ItemGroup>
@@ -111,13 +110,7 @@
     <None Update="RDLCdll\Microsoft.ReportViewer.Common.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="RDLCdll\Microsoft.ReportViewer.Common.pdb">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
     <None Update="RDLCdll\Microsoft.ReportViewer.DataVisualization.dll">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="RDLCdll\Microsoft.ReportViewer.DataVisualization.pdb">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="RDLCdll\Microsoft.ReportViewer.NETCore.dll">
@@ -126,13 +119,7 @@
     <None Update="RDLCdll\Microsoft.ReportViewer.ProcessingObjectModel.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="RDLCdll\Microsoft.ReportViewer.ProcessingObjectModel.pdb">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
     <None Update="RDLCdll\Microsoft.ReportViewer.WinForms.dll">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="RDLCdll\Microsoft.ReportViewer.WinForms.pdb">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="RDLCdll\pt\Microsoft.ReportViewer.Common.resources.dll">
@@ -157,6 +144,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="RDLCdll\zh-Hant\Microsoft.ReportViewer.WinForms.resources.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Report.rdlc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
