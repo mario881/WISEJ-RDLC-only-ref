@@ -71,6 +71,9 @@
   </ItemGroup>
   
   <ItemGroup>
+    <None Update="htmlpage.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="RDLCdll\de\Microsoft.ReportViewer.Common.resources.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

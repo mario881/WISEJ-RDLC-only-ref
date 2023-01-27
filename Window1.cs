@@ -13,7 +13,7 @@ using Microsoft.Reporting.WinForms;
 
 namespace WisejWebDesktopApplication1
 {
-    public partial class Window1 : Form
+    public partial class Window1 : mmForm
     {
         public Window1()
         {
@@ -31,10 +31,14 @@ namespace WisejWebDesktopApplication1
             report.DataSources.Add(new ReportDataSource("Items", items));
             report.SetParameters(parameters);
 
-            byte[] buffer = report.Render("PDF", null);// x.Render("PDF",null);
+            byte[] buffer = report.Render("PDF", null);// x.Render("PDF",null); Excel, PDF, Word, and Image
             Application.DownloadAndOpen("_blank", new System.IO.MemoryStream(buffer), "Stampa.pdf");
-           // Application.Download(new System.IO.MemoryStream(buffer), "Stampa.pdf");
+            //pdfViewer1.PdfStream = new System.IO.MemoryStream(buffer);
 
+            frmPdfViewer viewer= new frmPdfViewer();
+            viewer.init(new System.IO.MemoryStream(buffer));
+            viewer.Show();
         }
+
     }
 }
