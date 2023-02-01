@@ -32,7 +32,7 @@ namespace WisejWebDesktopApplication1
             report.SetParameters(parameters);
 
             byte[] buffer = report.Render("PDF", null);// x.Render("PDF",null); Excel, PDF, Word, and Image
-            Application.DownloadAndOpen("_blank", new System.IO.MemoryStream(buffer), "Stampa.pdf");
+            //Application.DownloadAndOpen("_blank", new System.IO.MemoryStream(buffer), "Stampa.pdf");
             //pdfViewer1.PdfStream = new System.IO.MemoryStream(buffer);
 
             frmPdfViewer viewer= new frmPdfViewer();
