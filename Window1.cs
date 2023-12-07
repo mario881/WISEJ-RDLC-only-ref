@@ -11,6 +11,7 @@ using Microsoft.Reporting.NETCore;
 using Microsoft.Reporting.WinForms;
 #endif
 
+
 namespace WisejWebDesktopApplication1
 {
     public partial class Window1 : mmForm
